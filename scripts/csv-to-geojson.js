@@ -6,8 +6,6 @@ var Promise = require("scripts/promise").Promise,
 
 //TODO Support single field with coordinates (can probably for csv2geojson)
 var DEFAULT_OPTIONS = {
-    latfield: 'Latitude',
-    lonfield: 'Longitude',
     delimiter: ','
 };
 
