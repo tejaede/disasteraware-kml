@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 40px;
+    font-size: 16px;
+}
+
+.main {
+    width: 100%;
+    padding: 20px;
+    background-color: #0f1a55;
+    color: #fff;
+    font-family: arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    max-width: 400px;
+}
+
+.files {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.subtext {
+    font-size: .75em;
+    color: #ccc;
+    margin: 0;
+}
+
+.subtext a {
+    color: #eee;
+}
+
+input[type=text],input[type=number], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100px;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.icon-size-inputs {
+    display: flex;
+}
+
+.icon-size-input .subtext {
+    display: inline-block;
+    width: 100%;
+}
+
+.icon-size-input label {
+    padding-right: 5px;
+}
+
+.icon-size-input .subtext {
+    color: #fff;
+}
+
+.icon-size-label {
+    display: inline-block;
+    width: 100%;
+}
+
+.checkmark {
+    position: absolute;
+    right: 5px;
+    display: none;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    font-size: 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 48px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type=file] {
+    display: none;
+}
+
+.fileinput {
+    color: white;
+    background-color: #0068ff;
+    display: block;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    width: 100%;
+    position: relative;
+}
+
+.fileinput:hover {
+    /* background-color: #0068ff; */
+    background-color: #0058f6;
+}
+
+svg {
+    fill: currentColor;
+    margin-left: 5px;
+}

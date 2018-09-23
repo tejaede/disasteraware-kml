@@ -1,0 +1,20 @@
+{
+  "name": "disasteraware-kml",
+  "version": "1.0.0",
+  "description": "Simple Web App to generate KML files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thomas.jaede@kaazing.com",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.2",
+    "csv-parser": "^1.12.1",
+    "csv2geojson": "^5.1.1",
+    "jasmine": "^3.2.0",
+    "jasmine-core": "^3.2.1",
+    "mr": "^17.0.12",
+    "tokml": "tejaede/tokml"
+  }
+}

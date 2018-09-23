@@ -1,0 +1,11 @@
+{
+  "name": "disasteraware-kml-tests",
+  "version": "1.0.0",
+  "description": "Simple Web App to generate KML files",
+  "scripts": {
+    "postinstall": "npm link ../"
+  },
+  "dependencies": {
+    "disasteraware-kml": "../"
+  }
+}
