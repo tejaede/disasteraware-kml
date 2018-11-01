@@ -5,8 +5,9 @@ require("disasteraware-kml/scripts/index");
 
 
 //Specs to run
-require("spec/converter.js");
-require("spec/image.js");
+require("spec/csv-to-geojson.js");
+// require("spec/kml-document.js");
+// require("spec/image.js");
 
 
 run();

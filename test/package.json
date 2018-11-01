@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npm link ../"
   },
-  "dependencies": {
+  "mappings": {
     "disasteraware-kml": "../"
   }
 }

@@ -157,6 +157,8 @@ Object.defineProperties(Main.prototype, {
                 height = this._heightInput.value,
                 width = this._widthInput.value,
                 doc;
+
+            console.log("_generateKMLWithDocument");
             
             return this._csv().then(function (csv) {
                 doc = KmlDocument.withCSV(csv);
@@ -166,8 +168,6 @@ Object.defineProperties(Main.prototype, {
             }).then(function (icon) {
                 doc.icon = Image.withSource(icon);
                 doc.iconSize = {height: height, width: width};
-                return doc.asXML();
-            }).then(function (kmlText) {
                 return doc.saveToFile();
             });
         }

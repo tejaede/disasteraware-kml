@@ -1,5 +1,5 @@
 var FileSaver = require("lib/FileSaver.js"),
-    csvToGeojson = require("scripts/csv-to-geojson"),
+    csvToGeojson = require("scripts/csv-to-geojson").convert,
     tokml = require("tokml");
 
 
@@ -98,9 +98,9 @@ Object.defineProperties(KmlDocument.prototype, {
     asText: {
         value: function () {
             var self = this;
-
-            return this._toGeoJSON().then(function (geojson) {
-                return self._geojsonToKML(geojson, false);
+            return this._kmlText.catch(function (e) {
+                console.error("Failed to convert kml document to text");
+                console.error(e);
             });
         }
     },
@@ -116,8 +116,27 @@ Object.defineProperties(KmlDocument.prototype, {
                 };
                 return self._promise;
             }).then(function (csv) {
+                console.time("KMLDocument._toGeoJSON");
                 return csvToGeojson(csv, icon);
+            }).catch(function (e) {
+                console.error("KMLDocument failed to convert csv to geoJSON");
+                console.error(e);
+            }).finally(function () {
+                console.timeEnd("KMLDocument._toGeoJSON");
             });
+        }
+    },
+
+    _kmlText: {
+        get: function () {
+            if (!this.__kmlText) {
+                var self = this, options;
+                this.__kmlText = this._toGeoJSON().then(function (geojson) {
+                    options = self._options();
+                    return self._geojsonToKML(geojson, false);
+                });
+            }
+            return this.__kmlText;
         }
     },
 
@@ -137,18 +156,20 @@ Object.defineProperties(KmlDocument.prototype, {
     },
 
     _geojsonToKML: {
-        value: function (geojson, asXML) {
+        value: function (geojson) {
+            console.time("KMLDocument._geojsonToKML");
             var options = this._options(),
                 kml = tokml(geojson, options);
-            return asXML ? toXML(kml) : kml;
+            console.timeEnd("KMLDocument._geojsonToKML");
+            return kml;
         }
     },
 
     asXML: {
         value: function () {
             var self = this;
-            return this._toGeoJSON().then(function (geojson) {
-                return self._geojsonToKML(geojson, true);
+            return this.asText.then(function (kmlText) {
+                return toXML(kml);
             });
         }
     },
